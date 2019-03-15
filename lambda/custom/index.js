@@ -1,7 +1,7 @@
 const Alexa = require('ask-sdk-core')
 const questions = require('./questions.js')
 
-const welcomeMessage = `Welcome to Britain's Got Trivia. A game with questions based on the popular life in the UK test. Are you ready to find out if you are truly British?`
+const welcomeMessage = 'Welcome to Britain\'s Got Trivia. A game with questions based on the popular life in the UK test. Are you ready to find out if you are truly British?'
 const goodbyeMessage = 'Thanks for playing. Good luck with your life in the UK'
 const readyMessage = 'Ok. Say start game to hear your first question. When ready to answer just say a, b, or c.'
 const readyReprompt = 'Say start to hear your first question. When ready to answer just say a, b, or c.'
@@ -146,8 +146,8 @@ function determine_correct(answer_slot, session_attribute, handlerInput) {
     sessionAttributes.score ++
    return '<audio src=\'soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_positive_01\'/> Correct. One point has been added to your score. '
   } 
-  else if (answer_slot === "pass"|| answer_slot === "skip" || answer_slot === "I don't know") {
-   return `<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_01'/> Skipping that question.`
+  else if (answer_slot === 'pass'|| answer_slot === 'skip' || answer_slot === 'I don\'t know') {
+   return '<audio src=\'soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_01\'/> Skipping that question.'
   } 
   else {
    return '<audio src=\'soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_negative_01\'/> Sorry, that is incorrect. ' 
@@ -241,4 +241,4 @@ exports.handler = skillBuilder
   StopIntentHandler,
  )
  .addErrorHandlers(ErrorHandler)
-.lambda();
+.lambda()

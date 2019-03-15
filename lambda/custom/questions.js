@@ -28,4 +28,4 @@ module.exports = {
     {question: 'Who was the prime minister during World War Two? Was it A, Margeret Thatcher. B, Winston Churchill. C, Tony Blair', answer: 'b'},
     {question: 'How long did the Romans stay in Britain? Was it A, Four Hundred Years. B, Six Hundred Years. C, Three Hundred Years', answer: 'a'}
     ]
-  };
+  }
