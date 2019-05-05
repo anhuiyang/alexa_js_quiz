@@ -1,8 +1,9 @@
 const Alexa = require('ask-sdk-core')
 const questions = require('./questions')
 const {welcomeMessage, goodbyeMessage, readyMessage, readyReprompt, helpMessage} = require('./messages')
-const {determineCorrect, chooseQuestions, getNextQuestion} = require('./helperFunctions')
+const {determineCorrect, populateQuestions, getNextQuestion} = require('./helperFunctions')
 const totalRounds = 2
+
 // HANDLERS
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -52,8 +53,8 @@ const StartQuizIntentHandler = {
   sessionAttributes.totalRounds = totalRounds
   sessionAttributes.currentRound = 1
   sessionAttributes.score = 0 
-  sessionAttributes.round1Questions = chooseQuestions(questions.ROUND1QUESTION)
-  sessionAttributes.round2Questions = chooseQuestions(questions.ROUND2QUESTION)
+  sessionAttributes.round1Questions = populateQuestions(questions.ROUND1QUESTION)
+  sessionAttributes.round2Questions = populateQuestions(questions.ROUND2QUESTION)
   let currentQuestionObject = sessionAttributes.round1Questions.pop()
   sessionAttributes.question = currentQuestionObject.question 
   sessionAttributes.answer = currentQuestionObject.answer
