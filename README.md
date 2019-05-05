@@ -1,5 +1,7 @@
 # Alexa Quiz Skill
 
+[![Build Status](https://travis-ci.com/anhuiyang/alexa_js_quiz.svg?branch=master)](https://travis-ci.com/anhuiyang/alexa_js_quiz)
+
 This project contains the code supporting the Quiz skill our team built for Alexa.
 
 Check out our interactive Alexa quizz skill [demo video](https://www.youtube.com/watch?v=u7rnM6qNkW8&feature=youtu.be)
