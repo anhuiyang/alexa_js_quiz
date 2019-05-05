@@ -5,13 +5,13 @@ const determineCorrect = (answerSlot, sessionAnswer, handlerInput) => {
     const sessionAttributes = handlerInput.attributesManager.getSessionAttributes()
     if (answerSlot === sessionAnswer) {
         sessionAttributes.score ++
-        return `<audio src=\'soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_positive_01\'/> ${correctMessage}`
+        return `<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_positive_01'/> ${correctMessage}`
     } 
     else if (answerSlot === 'pass'|| answerSlot === 'skip' || answerSlot === 'I don\'t know') {
-        return `<audio src=\'soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_01\'/> ${skipMessage}`
+        return `<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_bridge_01'/> ${skipMessage}`
     } 
     else {
-        return `<audio src=\'soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_negative_01\'/> ${incorrectMessage}` 
+        return `<audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_tally_negative_01'/> ${incorrectMessage}` 
     }
 }
 const populateQuestions = (questions) => {
@@ -47,7 +47,7 @@ const getNextQuestion = (handlerInput) => {
         if(sessionAttributes.round2Questions.length === 0){
             return `You scored ${sessionAttributes.score}. Thank you for playing`
         }else if(sessionAttributes.round2Questions.length === questionNoPerRound){
-            currentQuestionObject = sessionAttributes.round2Questions.pop()
+            let currentQuestionObject = sessionAttributes.round2Questions.pop()
             sessionAttributes.question = currentQuestionObject.question 
             sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
@@ -55,7 +55,7 @@ const getNextQuestion = (handlerInput) => {
 
             return `You scored ${sessionAttributes.score} the first round. On to round 2. The next question is: ${sessionAttributes.question}`
         }else{
-            currentQuestionObject = sessionAttributes.round2Questions.pop()
+            let currentQuestionObject = sessionAttributes.round2Questions.pop()
             sessionAttributes.question = currentQuestionObject.question 
             sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
