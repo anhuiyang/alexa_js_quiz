@@ -37,45 +37,38 @@ const getNextQuestion = (handlerInput) => {
     sessionAttributes.currentRound === 1 && sessionAttributes.round1Questions.length === 0 ? sessionAttributes.currentRound ++ : ''
     if(sessionAttributes.currentRound === 1){
         let currentQuestionObject = sessionAttributes.round1Questions.pop()
-        let currentQuestion = currentQuestionObject.question 
-        sessionAttributes.question = currentQuestion
-        let currentAnswer = currentQuestionObject.answer
-        sessionAttributes.answer = currentAnswer
+        sessionAttributes.question = currentQuestionObject.question 
+        sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
         if(process.env.NODE_ENV === 'test') {
             sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
             sessionAttributes.answer = 'a'
         }
-        return `The next question is: ${currentQuestion} <audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01'/>`
+        return `The next question is: ${sessionAttributes.question} <audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01'/>`
     }
     if(sessionAttributes.currentRound === sessionAttributes.totalRounds){
         if(sessionAttributes.round2Questions.length === 0){
             return `You scored ${sessionAttributes.score}. Thank you for playing`
         }else if(sessionAttributes.round2Questions.length === questionNoPerRound){
             currentQuestionObject = sessionAttributes.round2Questions.pop()
-
-            currentQuestion = currentQuestionObject.question 
-            sessionAttributes.question = currentQuestion
-            currentAnswer = currentQuestionObject.answer
-            sessionAttributes.answer = currentAnswer
+            sessionAttributes.question = currentQuestionObject.question 
+            sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
         if(process.env.NODE_ENV === 'test') {
             sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
             sessionAttributes.answer = 'a'
         }
-            return `You scored ${sessionAttributes.score} the first round. On to round 2. The next question is: ${currentQuestion}`
+            return `You scored ${sessionAttributes.score} the first round. On to round 2. The next question is: ${sessionAttributes.question}`
         }else{
             currentQuestionObject = sessionAttributes.round2Questions.pop()
-            currentQuestion = currentQuestionObject.question 
-            sessionAttributes.question = currentQuestion
-            currentAnswer = currentQuestionObject.answer
-            sessionAttributes.answer = currentAnswer
+            sessionAttributes.question = currentQuestionObject.question 
+            sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
         if(process.env.NODE_ENV === 'test') {
             sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
             sessionAttributes.answer = 'a'
         }
-        return `The next question is: ${currentQuestion} <audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01'/>`
+        return `The next question is: ${sessionAttributes.question} <audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01'/>`
         }
     }
 }
