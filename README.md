@@ -2,6 +2,8 @@
 
 This project contains the code supporting the Quiz skill our team is building for Alexa.
 
+Check out our interactive Alexa quizz skill [demo video](https://www.youtube.com/watch?v=u7rnM6qNkW8&feature=youtu.be)
+
 ## Approach
 Team trello to track tasks during development: https://trello.com/b/XDMT3Gny/alexa-app 
 
