@@ -100,18 +100,6 @@ const StopIntentHandler = {
   }
 }
 
-const ErrorHandler = {
-  canHandle() {
-  return true
-  },
-  handle(handlerInput) {
-  return handlerInput.responseBuilder
-  .speak('I am having trouble understanding that command')
-  .withShouldEndSession(false)
-  .getResponse()
-  },
-}
-
 const HelpIntentHandler = {
   canHandle(handlerInput) {
   return handlerInput.requestEnvelope.request.type === 'IntentRequest'
@@ -137,5 +125,4 @@ exports.handler = skillBuilder
   AnswerIntentHandler,
   StopIntentHandler,
   )
-.addErrorHandlers(ErrorHandler)
 .lambda()

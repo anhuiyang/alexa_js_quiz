@@ -1,4 +1,4 @@
-const questionNoPerRound = 2
+const questionNoPerRound = 5
 const {correctMessage, skipMessage, incorrectMessage} = require('./messages')
 
 const determineCorrect = (answerSlot, sessionAnswer, handlerInput) => {

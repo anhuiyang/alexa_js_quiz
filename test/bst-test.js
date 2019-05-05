@@ -31,7 +31,7 @@ const alexa = va.VirtualAlexa.Builder()
         assert.include(result.prompt(), 'Here are the rules.');
       })
       
-      it("Shows your score after 5 questions", async () => {
+      it("Shows your score after 1st round ended", async () => {
         let result = await alexa.launch();
         result = await alexa.utter('start game');
         assert.include(result.prompt(), 'This is round 1');
@@ -41,9 +41,17 @@ const alexa = va.VirtualAlexa.Builder()
         assert.include(result.prompt(), "incorrect");
         result = await alexa.utter("pass")
         assert.include(result.prompt(), "Skipping that question.");
-        result = await alexa.utter("the answer is b")
-        assert.include(result.prompt(), "Thank you for playing");
-        // result = await alexa.utter("cheese")
+        result = await alexa.utter("pass")
+        result = await alexa.utter("pass")
+        assert.include(result.prompt(), "You scored 1");
+        assert.include(result.prompt(), "On to round 2");
+        result = await alexa.utter("pass")
+        result = await alexa.utter("pass")
+        result = await alexa.utter("pass")
+        result = await alexa.utter("pass")
+        result = await alexa.utter("the answer is a")
+        assert.include(result.prompt(), "You scored 2. Thank you for playing");
+
         // assert.include(result.prompt(), "I am having trouble understanding that command");
       })
       it('StopIntent', async () => {
