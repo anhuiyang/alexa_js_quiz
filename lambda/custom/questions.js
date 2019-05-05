@@ -1,8 +1,5 @@
 module.exports = {
-
   ROUND1QUESTION: [
-    // {question: 'What is considered proper etiquette on a London tube? Is it A, To remain in complete silence. B, To make eye contact. C, Public Displays of affection ', answer: 'a'},
-    // {question: 'Which of the following can be deep fried in Scotland? Is it A, Haggis. B, Mars Bars . C, Everything', answer: 'c'}
     {question: 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?', answer: 'a'},
     {question: 'Where is Snowdonia located? Is it in, A, West England. B, North England. C, Wales', answer: 'c'},
     {question: 'When did Ireland split into two countries? Was it in, A, 1959. B, 1922. C, 1921', answer: 'b'},
@@ -19,8 +16,6 @@ module.exports = {
     {question: 'Where does the Fringe take place? Is it in, A.Liverpool, B.Newcastle, C.Edinburgh', answer: 'c'}
     ],
   ROUND2QUESTION: [
-      // {question: 'What is considered proper etiquette on a London tube? Is it A, To remain in complete silence. B, To make eye contact. C, public displays of affection ', answer: 'a'},
-      // {question: 'Which of the following can be deep fried in Scotland? Is it A, Haggis. B, Mars Bars . C, Everything', answer: 'c'}
     {question: 'Where did the people of the Bronze Age bury their dead? Was it in A,Graveyards. B,Round Barrows. C,Coffin House', answer: 'b'},
     {question: 'Hadrian’s Wall is a popular UNESCO World Heritage Site? Answer, A, for True, or B, for False', answer: 'a'},
     {question: 'Where in Scotland is known as the home of golf? Is it A, St Andrews. B, Glasgow. C, Edinburgh', answer: 'a'},
