@@ -1,6 +1,6 @@
 # Alexa Quiz Skill
 
-This project contains the code supporting the Quiz skill our team is building for Alexa.
+This project contains the code supporting the Quiz skill our team built for Alexa.
 
 Check out our interactive Alexa quizz skill [demo video](https://www.youtube.com/watch?v=u7rnM6qNkW8&feature=youtu.be)
 
@@ -18,7 +18,7 @@ Install and Setup [ASK CLI](https://developer.amazon.com/docs/smapi/quick-start-
 1. Install latest version of the CLI  
 ```$ npm update -g ask-cli```
 2. Clone the repo  
-```$ ask clone https://github.com/learningtocode101/alexa_node_js_quiz.git quiz_game```
+```$ ask clone https://github.com/anhuiyang/alexa_js_quiz.git quiz_game```
 3. Install the dependencies  
 ```$ npm install```
 4. Run the tests  
