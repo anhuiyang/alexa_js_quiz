@@ -15,8 +15,7 @@ const determineCorrect = (answerSlot, sessionAnswer, handlerInput) => {
     }
 }
 const populateQuestions = (questions) => {
-    let shuffledArray = shuffleQuestions(questions).slice(-questionNoPerRound)
-    return shuffledArray
+    return shuffleQuestions(questions).slice(-questionNoPerRound)
 }
 
 const shuffleQuestions = (array) => {
@@ -40,10 +39,8 @@ const getNextQuestion = (handlerInput) => {
         sessionAttributes.question = currentQuestionObject.question 
         sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
-        if(process.env.NODE_ENV === 'test') {
-            sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
-            sessionAttributes.answer = 'a'
-        }
+        stubQuestion(sessionAttributes)
+
         return `The next question is: ${sessionAttributes.question} <audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01'/>`
     }
     if(sessionAttributes.currentRound === sessionAttributes.totalRounds){
@@ -54,23 +51,24 @@ const getNextQuestion = (handlerInput) => {
             sessionAttributes.question = currentQuestionObject.question 
             sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
-        if(process.env.NODE_ENV === 'test') {
-            sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
-            sessionAttributes.answer = 'a'
-        }
+        stubQuestion(sessionAttributes)
+
             return `You scored ${sessionAttributes.score} the first round. On to round 2. The next question is: ${sessionAttributes.question}`
         }else{
             currentQuestionObject = sessionAttributes.round2Questions.pop()
             sessionAttributes.question = currentQuestionObject.question 
             sessionAttributes.answer = currentQuestionObject.answer
         //stub question for testing
-        if(process.env.NODE_ENV === 'test') {
-            sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
-            sessionAttributes.answer = 'a'
-        }
+        stubQuestion(sessionAttributes)
+
         return `The next question is: ${sessionAttributes.question} <audio src='soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01'/>`
         }
     }
 }
-
-module.exports = {determineCorrect, populateQuestions, shuffleQuestions, getNextQuestion}
+const stubQuestion = (sessionAttributes)=>{
+    if(process.env.NODE_ENV === 'test') {
+        sessionAttributes.question = 'What is the capital of England? Is it, A, London. B, Edinburgh. C, Cardiff?'
+        sessionAttributes.answer = 'a'
+    }
+}
+module.exports = {determineCorrect, populateQuestions, shuffleQuestions, getNextQuestion, stubQuestion}
